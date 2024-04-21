@@ -5,13 +5,24 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 const allContent = document.getElementById("all-contents");
+const fernh = document.querySelector(".fernh");
+const temper = document.querySelector(".temp");
+const felTemp = document.querySelector(".fl-temp");
+const felFern = document.querySelector(".fl-fernh");
+const ferBtn = document.querySelector("#ferBtn");
+const celBtn = document.querySelector("#celBtn");
 
 async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     var data = await response.json();
+    const celciu = Math.round(data.main.temp);
+    const flCelciu = Math.round(data.main.feels_like);
 
-    document.querySelector(".city").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+    document.querySelector(".city").innerHTML = data.name + " , " + data.sys.country;
+    document.querySelector(".temp").innerHTML = celciu + "°C";
+    document.querySelector(".fernh").innerHTML = (celciu *2)+ 30 +"°F";
+    document.querySelector(".fl-temp").innerHTML = flCelciu + "°C";
+    document.querySelector(".fl-fernh").innerHTML = (flCelciu *2)+ 30 +"°F";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
@@ -54,3 +65,20 @@ async function checkWeather(city) {
 searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
 });
+
+function celcius() {
+    fernh.style.display="none";
+    temper.style.display="block";
+    felFern.style.display="none";
+    felTemp.style.display="block";
+    celBtn.style.background="#fff";
+    ferBtn.style.background="#ffffff5c";
+}
+function fernheight() {
+    fernh.style.display="block";
+    temper.style.display="none";
+    felFern.style.display="block";
+    felTemp.style.display="none";
+    celBtn.style.background="#ffffff5c";
+    ferBtn.style.background="#fff";
+}
