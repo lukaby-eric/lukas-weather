@@ -1,7 +1,7 @@
 *{
     margin: 0;
     pad: 0;
-    font-family: 'poppins' sans-serif;
+    font-family: 'Yu Gothic UI Semibold';
     box-sizing: border-box;
 }
 
@@ -26,6 +26,14 @@
     padding: 40px 35px;
     text-align: center;
     box-shadow: 2px 0px 8px grey;
+}
+.contentss{
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.contentss::-webkit-scrollbar{
+    width: 0;
 }
 .search{
     width: 100%;
@@ -61,18 +69,23 @@
 .search button:hover{
     background: #a2c2be;
 }
+
 .weather-icon{
     width: 170px;
-    margin-top: 30px;
+    margin-top: 0px;
+}
+.temperature{
+    display: grid;
+    grid-template-columns: auto auto;
 }
 .weather h1{
     font-size: 80px;
-    font-weight: 500;
+    font-weight: 400;
 }
 .weather h2{
     font-size: 45px;
-    font-weight: 400;
-    margin-top: -10px;
+    font-weight: 500;
+    margin-top: 20px;
 }
 
 .details{
@@ -95,7 +108,30 @@
     font-size: 28px;
     margin-top: -6px;
 }
+.temp{
+    display: none;
+}
 
+#ferBtn,#celBtn{
+    padding: 5px 8px;
+    border: none;
+    outline: none;
+    background: #ffffff5c;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .4s;
+}
+#ferBtn{
+    background: #fff;
+}
+#ferBtn:hover,#celBtn:hover{
+    background: #ffffff;
+    transform: scale(1.1,1.1);
+}
+.fl-temp{
+    display: none;
+}
 .weather{
     display: none;
 }
