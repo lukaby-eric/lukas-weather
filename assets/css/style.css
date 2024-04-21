@@ -27,6 +27,12 @@
     text-align: center;
     box-shadow: 2px 0px 8px grey;
 }
+#logo{
+    width: 60px;
+    position: absolute;
+    top: -70px;
+    left: calc(50% - 30px);
+}
 .contentss{
     height: 450px;
     overflow-x: hidden;
